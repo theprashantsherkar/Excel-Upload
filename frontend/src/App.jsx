@@ -1,35 +1,64 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
+
+import React, { useContext, useEffect, useState } from 'react'
+import '../styles/App.css'
+import Dashboard from '../pages/Dashboard.jsx'
+import { Route, Routes, BrowserRouter as Router, useNavigate } from 'react-router-dom';
+import Exam from '../pages/Exam.jsx'
+import Passchange from '../pages/Passchange.jsx'
+import Profile from '../pages/Profile.jsx'
+import { Toaster } from 'react-hot-toast';
+import Login from '../pages/Login.jsx';
+import Register from '../pages/Register.jsx';
+import axios from 'axios';
+import { LoginContext } from './main.jsx';
+import Assessment from '../pages/Assessment.jsx';
+import Evaluation from '../pages/Evaluation.jsx';
+import Report from '../pages/Report.jsx';
+import Dummy from '../pages/Dummy.jsx';
+import AddSubs from '../pages/AddSubs.jsx';
+
+
+
+export const backend_URL = 'http://localhost:8000';
 function App() {
-  const [count, setCount] = useState(0)
+
+  const { setUser, user, setIsLoggedIn } = useContext(LoginContext);
+
+  useEffect(() => {
+    async function getUser() {
+      try {
+        const { data } = await axios.get(`${backend_URL}/admin/profile`, {
+          headers: {
+            "Content-Type": "application/json"
+          },
+          withCredentials: true,
+        })
+        setUser(data.User);
+        setIsLoggedIn(true);
+      } catch (error) {
+        console.log('error in App.js');
+      }
+    }
+    getUser();
+  }, [Routes, Profile])
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+
+    <Router>
+      <Routes>
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/' element={<Login />} />
+        <Route path='/dashboard' element={<Dashboard />} />
+
+      </Routes>
+      <Toaster />
+    </Router>
+
+
   )
 }
 
 export default App
+

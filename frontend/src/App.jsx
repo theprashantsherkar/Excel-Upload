@@ -1,22 +1,13 @@
-
-
 import React, { useContext, useEffect, useState } from 'react'
-import '../styles/App.css'
-import Dashboard from '../pages/Dashboard.jsx'
+
+import Dashboard from './pages/Dashboard.jsx';
 import { Route, Routes, BrowserRouter as Router, useNavigate } from 'react-router-dom';
-import Exam from '../pages/Exam.jsx'
-import Passchange from '../pages/Passchange.jsx'
-import Profile from '../pages/Profile.jsx'
 import { Toaster } from 'react-hot-toast';
-import Login from '../pages/Login.jsx';
-import Register from '../pages/Register.jsx';
+import Login from './pages/Login.jsx';
+import Register from './pages/Register.jsx';
 import axios from 'axios';
 import { LoginContext } from './main.jsx';
-import Assessment from '../pages/Assessment.jsx';
-import Evaluation from '../pages/Evaluation.jsx';
-import Report from '../pages/Report.jsx';
-import Dummy from '../pages/Dummy.jsx';
-import AddSubs from '../pages/AddSubs.jsx';
+
 
 
 

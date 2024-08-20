@@ -1,11 +1,11 @@
 import React, { useState, useContext } from 'react'
 import { IoEyeOutline } from "react-icons/io5";
 import { Link, useNavigate } from 'react-router-dom';
-import '../styles/login.css'
+
 import toast from 'react-hot-toast';
-import { backend_URL } from '../src/App';
+import { backend_URL } from '../App';
 import axios from 'axios';
-import { LoginContext } from '../src/main';
+import { LoginContext } from '../main';
 
 
 function Login() {

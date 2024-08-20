@@ -6,7 +6,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css'
 
 
-export const LoginContext = createContext({ isLoggedIn: false, subjects: [] });
+export const LoginContext = createContext({
+  isLoggedIn: false,
+  user: {},
+  setUser: () => { },
+  setIsLoggedIn: () => { }
+});
 
 const AppWrapper = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

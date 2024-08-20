@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import '../styles/dashboard.css'
-import Header from '../components/Header.jsx'
-import { backend_URL } from '../src/App.jsx';
+
+
+import { backend_URL } from '../App.jsx';
 import toast from 'react-hot-toast';
 import axios from 'axios';
 
@@ -84,7 +84,8 @@ function Dashboard() {
 
     return (
         <>
-            <Header />
+            
+            
             <div className="dashboard">
                 <div className="w-75 dash">
                     <div className="students text-2xl">

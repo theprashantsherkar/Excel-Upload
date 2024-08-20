@@ -1,18 +1,18 @@
 import express from 'express';
 
 import {
-    changePass,
-    dashboardAPI,
-    getStudents,
-    getUsers,
     loginFunc,
-    logout,
+    signinFunc,
+    changePass,
     profile,
-    signinFunc
+    dashboardAPI,
+    getUsers,
+    getStudents,
+    logout
 } from '../controllers/admin.js';
-import { isAuthenticated } from '../middlewares/auth.js';
-import { upload } from '../middlewares/multer.js';
 
+import { isAuthenticated } from '../auth/auth.js';
+import { upload } from '../utils/multer.js';
 
 const router = express.Router()
 

@@ -1,8 +1,8 @@
-import { Users } from '../model/userModel.js';
+import { Users } from '../models/adminModel.js';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import path, { dirname } from 'path';
-import { Student } from '../model/studentsModel.js';
+import { Student } from '../models/studentModel.js';
 import xlsx from 'xlsx';
 import { fileURLToPath } from 'url';
 

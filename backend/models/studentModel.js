@@ -30,3 +30,4 @@ const studentSchema = new mongoose.Schema({
 
 
 export const Student = mongoose.model("students", studentSchema);
+

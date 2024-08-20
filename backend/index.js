@@ -3,7 +3,7 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import cors from 'cors';
 import dotenv from "dotenv";
-import adminRouter from './routes/admin.js';
+import adminRouter from './routes/admin.js'
 import bodyParser from "body-parser";
 import path from 'path';
 import { fileURLToPath } from "url";
@@ -30,5 +30,5 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, 'public')))
 
 
-app.use('/admin', adminRouter)
+app.use('/admin', adminRouter);
 
